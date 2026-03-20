@@ -1,6 +1,6 @@
-# 🌾 GIS-Based Farm Viability Assessment — Kachia LGA, Kaduna State
+# 🌾 GIS-Based Farm Viability Assessment For Kachia LGA, Kaduna State
 
-> A spatial analysis project assessing smallholder farm viability to support agricultural loan disbursement and farmer onboarding — modelled on [ThriveAgric](https://thriveagric.com)'s farm mapping workflow.
+> A spatial analysis project assessing smallholder farm viability to support agricultural loan disbursement and farmer onboarding, modelled on [ThriveAgric](https://thriveagric.com)'s farm mapping workflow.
 
 ---
 
@@ -10,7 +10,7 @@
 
 ## 📌 Project Overview
 
-This project uses GIS-based spatial analysis to assess the agricultural viability of 24 sample smallholder farms in **Kachia Local Government Area, Kaduna State, Nigeria**. Four environmental factors — soil texture, terrain slope, proximity to water, and land cover — were combined into a single **Farm Viability Score** for each farm.
+This project uses GIS-based spatial analysis to assess the agricultural viability of 24 sample smallholder farms in **Kachia Local Government Area, Kaduna State, Nigeria**. Four environmental factors; soil texture, terrain slope, proximity to water, and land cover were combined into a single **Farm Viability Score** for each farm.
 
 The methodology directly mirrors ThriveAgric's farm mapping process, where soil texture, slope, and proximity to water are assessed before input financing and loan disbursement.
 
@@ -34,10 +34,10 @@ The methodology directly mirrors ThriveAgric's farm mapping process, where soil 
 | Medium | 16 | 67% | Loan disbursement with standard conditions |
 | Low | 8 | 33% | Field verification required |
 
-- **Water proximity** is the primary limiting factor — most of Kachia LGA lies >5km from any river or waterbody
-- **Slope is not a constraint** — Kachia is predominantly flat, well-suited for mechanised farming
-- **Soil texture is moderately suitable** — Sandy Loam and Clay Loam dominate, requiring fertilizer inputs
-- **Land cover is favourable** — predominance of cropland and grassland confirms active farming across the LGA
+- **Water proximity** is the primary limiting factor. Most of Kachia LGA lies >5km from any river or waterbody
+- **Slope is not a constraint.** Kachia is predominantly flat, well-suited for mechanised farming
+- **Soil texture is moderately suitable.** Sandy Loam and Clay Loam dominate, requiring fertilizer inputs
+- **Land cover is favourable.** Predominance of cropland and grassland confirms active farming across the LGA
 
 ---
 
@@ -126,8 +126,8 @@ For detailed methodology, results, and recommendations, download the full report
 
 ## 👤 Author
 
-**Timothy Adeneye**
-Remote Sensing and GIS Analyst
+**Timothy Adeneye** |
+Remote Sensing and GIS Analyst |
 📍 Nigeria
 🔗 [GitHub](https://github.com/Bloom9ja)
 
