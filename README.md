@@ -19,7 +19,7 @@ The methodology directly mirrors ThriveAgric's farm mapping process, where soil 
 ## 🗺️ Maps
 
 ### Farm Viability Score Map
-![Farm Viability Score](Farm%20Viability%20Score.png)
+![Farm Viability Score](Farm_Viability_Score.png)
 
 ### Factor Analysis Map
 ![Factor Map](Factor_Map.png)
