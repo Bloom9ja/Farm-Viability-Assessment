@@ -9,7 +9,7 @@
 
 ---
 
-![Farm Classification](Farm%Classification.png)
+![Farm Classification](Farm_Classification.png)
 
 ---
 
@@ -28,10 +28,10 @@ analysis, with all data processed at 30m resolution.
 ## 🗺️ Maps
 
 ### Enhanced Farm Viability Score
-![Farm Viability](Farm%Viability.png)
+![Farm Viability](Farm_Viability.png)
 
 ### Factor Analysis
-![Factor Maps](Factor%Maps.png)
+![Factor Maps](Factor_Maps.png)
 
 ### Soil Quality Index
 ![SQI Map](SQI.png)
@@ -109,12 +109,12 @@ SQI = (Carbon×0.30) + (Nitrogen×0.25) +
 
 ## 📁 Repository Structure
 ```
-├── Map1_FarmViability_V2.png
-├── Map2_FarmClassification_V2.png  
-├── Map3_FactorMaps_V2.png
-├── Map4_SQI_V2.png
-├── Farm_Viability_Results_V2.csv
-├── Farm_Viability_Assessment_V2_Kachia.pdf
+├── Farm_Viability.png
+├── Farm_Classification.png  
+├── Factor_Maps.png
+├── SQI.png
+├── Farm_Viability_Results.csv
+├── Farm_Viability_Assessment_Kachia.pdf
 └── README.md
 ```
 
@@ -134,7 +134,7 @@ SQI = (Carbon×0.30) + (Nitrogen×0.25) +
 
 ## 📄 Full Report
 
-📥 [Download Full Report](Farm&Viability%Assessment%Kachia.pdf)
+📥 [Download Full Report](Farm_Viability_Assessment_Kachia.pdf)
 
 ---
 
