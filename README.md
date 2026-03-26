@@ -1,104 +1,120 @@
-# 🌾 GIS-Based Farm Viability Assessment For Kachia LGA, Kaduna State
+# 🌾 GIS-Based Enhanced Farm Viability Assessment
+## Kachia LGA, Kaduna State, Nigeria
 
-> A spatial analysis project assessing smallholder farm viability to support agricultural loan disbursement and farmer onboarding, modelled on [ThriveAgric](https://thriveagric.com)'s farm mapping workflow.
+> A spatial analysis project assessing smallholder 
+> farm viability to support agricultural loan 
+> disbursement and farmer onboarding, modelled on 
+> [ThriveAgric](https://thriveagric.com)'s farm 
+> mapping workflow.
 
 ---
 
-![Sample Farms Viability Map](Sample_Farms_Viability_Map.png)
+![Farm Classification](Farm%Classification.png)
 
 ---
 
 ## 📌 Project Overview
 
-This project uses GIS-based spatial analysis to assess the agricultural viability of 24 sample smallholder farms in **Kachia Local Government Area, Kaduna State, Nigeria**. Four environmental factors; soil texture, terrain slope, proximity to water, and land cover were combined into a single **Farm Viability Score** for each farm.
-
-The methodology directly mirrors ThriveAgric's farm mapping process, where soil texture, slope, and proximity to water are assessed before input financing and loan disbursement.
+This project uses GIS-based spatial analysis to 
+assess the agricultural viability of 24 sample 
+smallholder farms in Kachia LGA, Kaduna State, 
+one of Nigeria's leading ginger producing zones. 
+Eight environmental factors were combined into a 
+single Farm Viability Score using weighted overlay 
+analysis, with all data processed at 30m resolution.
 
 ---
 
 ## 🗺️ Maps
 
-### Farm Viability Score Map
-![Farm Viability Score](Farm_Viability_Score.png)
+### Enhanced Farm Viability Score
+![Farm Viability](Farm%Viability.png)
 
-### Factor Analysis Map
-![Factor Map](Factor_Map.png)
+### Factor Analysis
+![Factor Maps](Factor%Maps.png)
+
+### Soil Quality Index
+![SQI Map](SQI.png)
 
 ---
 
-## 📊 Key Findings
+## 📊 Key Results
 
-| Viability Class | Farms | Percentage | Recommendation |
-|----------------|-------|------------|----------------|
-| High | 0 | 0% | — |
-| Medium | 16 | 67% | Loan disbursement with standard conditions |
-| Low | 8 | 33% | Field verification required |
+| Class | Farms | % | FAO | Recommendation |
+|-------|-------|---|-----|----------------|
+| High | 10 | 42% | S2 | Full loan disbursement |
+| Medium | 12 | 50% | S2 | Standard conditions |
+| Low | 2 | 8% | S2 | Field verification |
 
-- **Water proximity** is the primary limiting factor. Most of Kachia LGA lies >5km from any river or waterbody
-- **Slope is not a constraint.** Kachia is predominantly flat, well-suited for mechanised farming
-- **Soil texture is moderately suitable.** Sandy Loam and Clay Loam dominate, requiring fertilizer inputs
-- **Land cover is favourable.** Predominance of cropland and grassland confirms active farming across the LGA
+**All 24 farms = FAO S2 Moderately Suitable**
+
+---
+
+## 🔑 Key Findings
+
+- Water proximity is the primary limiting factor
+- Kachia is predominantly flat — ideal for farming
+- Soil fertility is moderate — responds well to inputs
+- SQI: 0.587–0.678 (Moderate to Good)
+- pH 5.5–6.4 — ideal for ginger, maize, sorghum
+- All farms within FAO S2 classification
 
 ---
 
 ## ⚙️ Methodology
 
-All data was processed in **QGIS 3.40** and reprojected to **WGS 1984 UTM Zone 32N (EPSG:32632)**.
+All data processed in QGIS 3.40, EPSG:32632
 
 ### Suitability Factors & Weights
 
-| Factor | Data Source | Weight |
-|--------|-------------|--------|
-| Soil Texture | ISRIC SoilGrids (AfSIS) | 35% |
-| Slope | USGS SRTM (30m DEM) | 25% |
-| Distance to Water | OpenStreetMap Rivers & Waterbodies | 25% |
-| Land Cover | ESA WorldCover 2021 | 15% |
+| Factor | Source | Weight |
+|--------|--------|--------|
+| Organic Carbon | iSDAsoil 30m | 20% |
+| NDMI Moisture | GEE Landsat 8 | 15% |
+| Nitrogen | iSDAsoil 30m | 15% |
+| Soil Texture | iSDAsoil 30m | 15% |
+| pH | iSDAsoil 30m | 10% |
+| Slope | USGS SRTM | 10% |
+| Water Distance | OpenStreetMap | 10% |
+| Phosphorus | iSDAsoil 30m | 5% |
 
 ### Weighted Overlay Formula
-
 ```
-Farm Viability Score = (Soil × 0.35) + (Slope × 0.25) + (Water × 0.25) + (Land Cover × 0.15)
+Viability = (Carbon×0.20) + (NDMI×0.15) + 
+(Nitrogen×0.15) + (Texture×0.15) + 
+(pH×0.10) + (Slope×0.10) + 
+(Water×0.10) + (Phosphorus×0.05)
 ```
 
-### Workflow Summary
-
-1. **Data Preparation** — Reprojection, clipping, format standardization
-2. **Farm Digitizing** — 24 sample farm polygons digitized in Google Earth Pro
-3. **Suitability Rasters** — Each factor reclassified to 1–5 score
-4. **Proximity Analysis** — GDAL Proximity tool for river and waterbody distance
-5. **Weighted Overlay** — Composite Farm Viability Score raster generated
-6. **Farm Scoring** — Zonal Statistics extracted mean score per farm
-7. **Map Production** — 3 professional maps produced in QGIS Print Layout
+### Soil Quality Index
+```
+SQI = (Carbon×0.30) + (Nitrogen×0.25) + 
+      (Phosphorus×0.25) + (pH×0.20)
+```
 
 ---
 
-## 🛠️ Tools & Technologies
-
-![QGIS](https://img.shields.io/badge/QGIS-3.40-green?style=flat-square&logo=qgis)
-![GDAL](https://img.shields.io/badge/GDAL-3.11-blue?style=flat-square)
-![Google Earth](https://img.shields.io/badge/Google%20Earth%20Pro-Digitizing-red?style=flat-square)
+## 🛠️ Tools
 
 | Tool | Purpose |
 |------|---------|
-| QGIS 3.40 (Bratislava) | Primary GIS analysis and map production |
-| GDAL Proximity | Euclidean distance raster generation |
-| GDAL Rasterize | Vector to raster conversion |
-| QGIS Raster Calculator | Weighted overlay computation |
-| QGIS Zonal Statistics | Farm viability score extraction |
-| Google Earth Pro | Farm polygon digitizing |
+| QGIS 3.40 | GIS analysis and map production |
+| Google Earth Engine | Landsat 8 NDMI processing |
+| iSDAsoil (30m) | African soil property data |
+| GDAL Proximity | Water distance rasters |
+| QGIS Zonal Statistics | Farm score extraction |
+| Google Earth Pro | Farm digitizing |
 
 ---
 
 ## 📁 Repository Structure
-
 ```
-farm-viability-assessment-kachia/
-│
-├── Farm_Viability_Score.png          # Map 1 — Composite viability score raster
-├── Sample_Farms_Viability_Map.png    # Map 2 — Farm classification map
-├── Factor_Map.png                    # Map 3 — 4-panel factor analysis
-├── Farm_Viability_Results.csv        # Farm attribute table with all scores
-├── Farm_Viability_Assessment_ThriveAgric.pdf  # Full project write-up
+├── Map1_FarmViability_V2.png
+├── Map2_FarmClassification_V2.png  
+├── Map3_FactorMaps_V2.png
+├── Map4_SQI_V2.png
+├── Farm_Viability_Results_V2.csv
+├── Farm_Viability_Assessment_V2_Kachia.pdf
 └── README.md
 ```
 
@@ -108,29 +124,29 @@ farm-viability-assessment-kachia/
 
 | Dataset | Source |
 |---------|--------|
-| SRTM Digital Elevation Model | [USGS EarthExplorer](https://earthexplorer.usgs.gov/) |
-| Land Cover | [ESA WorldCover 2021](https://esa-worldcover.org/) |
-| Soil Texture | [ISRIC SoilGrids](https://soilgrids.org/) |
-| Rivers & Waterbodies | [OpenStreetMap](https://www.openstreetmap.org/) |
-| Farm Polygons | Digitized — Google Earth Pro |
+| Soil Properties | [iSDAsoil](https://www.isda-africa.com/isdasoil/) |
+| DEM/Slope | [USGS EarthExplorer](https://earthexplorer.usgs.gov/) |
+| NDMI/Landsat | [Google Earth Engine](https://earthengine.google.com/) |
+| Rivers/Water | [OpenStreetMap](https://www.openstreetmap.org/) |
+| Farm Polygons | Google Earth Pro |
 
 ---
 
-## 📄 Full Project Write-Up
+## 📄 Full Report
 
-For detailed methodology, results, and recommendations, download the full report:
-
-📥 [Farm_Viability_Assessment_Kachia.pdf](Farm_Viability_Assessment_ThriveAgric.pdf)
+📥 [Download Full Report](Farm&Viability%Assessment%Kachia.pdf)
 
 ---
 
 ## 👤 Author
 
-**Timothy Adeneye** |
-Remote Sensing and GIS Analyst |
-📍 Nigeria
+**Timothy Adeneye**  
+Remote Sensing and GIS Analyst  
+📍 Nigeria  
 🔗 [GitHub](https://github.com/Bloom9ja)
 
 ---
 
-*This project was developed as a portfolio piece demonstrating GIS-based agricultural suitability analysis aligned with ThriveAgric's farm mapping and loan disbursement workflow.*
+*Methodology aligned with ThriveAgric's farm 
+mapping and loan disbursement workflow.*
+```
