@@ -1,4 +1,4 @@
-# 🌾 GIS-Based Enhanced Farm Viability Assessment
+# GIS-Based Enhanced Farm Viability Assessment
 ## Kachia LGA, Kaduna State, Nigeria
 
 > A spatial analysis project assessing smallholder 
